@@ -1,0 +1,82 @@
+<?php echo $this->doctype(); ?>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <?php echo $this->headTitle('GP ' . $this->translate('Comprass'))->setSeparator(' - ')->setAutoEscape(false) ?>
+        <?php
+        echo $this->headMeta()
+                ->appendName('viewport', 'width=device-width, initial-scale=1.0')
+                ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
+        ?>
+        <!-- style sheet -->
+        <?php
+        echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/logo.png'))
+                ->prependStylesheet($this->basePath('css/angular-material.min.css'))
+        ?>
+        <!-- header script -->
+        <?php
+        echo $this->headScript()
+                ->prependFile($this->basePath('js/angular.min.js'))
+        ; ?>
+    </head>
+    <!--<body ng-app="ComprassApp" ng-cloak>-->
+    <body ng-app="ComprassApp">
+        <md-toolbar layout="row" >
+            <h6>Comprass - Starter App</h6>
+        </md-toolbar>
+        <div flex layout="row">
+
+            <!-- SideNav -->
+            <md-sidenav md-is-locked-open="true" class="md-whiteframe-z2">
+                <md-list>
+                    <!-- List item #1 -->
+                    <md-list-item >
+                        <md-button>
+                            <!--<md-icon md-svg-src="./assets/svg/avatar-1.svg" class="avatar"></md-icon>-->
+                            Inicio
+                        </md-button>
+                    </md-list-item>
+
+                    <!-- List item #2 -->
+                    <md-list-item >
+                        <md-button>
+                            <!--<md-icon md-svg-src="./assets/svg/avatar-4.svg" class="avatar"></md-icon>-->
+                            Permisos
+                        </md-button>
+                    </md-list-item>
+                </md-list>
+            </md-sidenav>
+
+            <!-- Container #4 -->
+            <md-content flex id="content">
+                <?php echo $this->content; ?>
+                <hr>
+                <footer>
+                    <p>&copy; 2016 - <?php echo date('Y') ?> by Grupo Promass. <?php echo $this->translate('All rights reserved.') ?></p>
+                </footer>
+            </md-content>
+
+        </div>
+        <!-- inline script -->
+        <?php echo $this->inlineScript() 
+            ->prependFile($this->basePath('js/angular-animate.min.js'))
+            ->prependFile($this->basePath('js/angular-aria.min.js'))
+            ->prependFile($this->basePath('js/angular-messages.min.js'))
+            ->prependFile($this->basePath('js/angular-material.min.js'))
+        ; ?>
+
+        <!-- Your application bootstrap  -->
+        <script type="text/javascript">
+            /**
+             * You must include the dependency on 'ngMaterial' 
+             */
+            angular.module('ComprassApp', ['ngMaterial'])
+            .config(function($mdThemingProvider) {
+              $mdThemingProvider.theme('default')
+                .primaryPalette('blue',{'default': '900'})
+                .accentPalette('light-blue');
+            });
+        </script>
+    </body>
+</html>
+
