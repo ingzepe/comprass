@@ -1,0 +1,70 @@
+<?php echo $this->doctype(); ?>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <?php echo $this->headTitle('GP ' . $this->translate('Comprass'))->setSeparator(' - ')->setAutoEscape(false) ?>
+        <?php
+        echo $this->headMeta()
+                ->appendName('viewport', 'width=device-width, initial-scale=1.0')
+                ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
+        ?>
+        <!-- style sheet -->
+        <?php
+        echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/logo.png'))
+                ->prependStylesheet($this->basePath('css/angular-material.min.css'))
+        ?>
+        <!-- header script -->
+        <?php
+        echo $this->headScript()
+                ->prependFile($this->basePath('js/angular.min.js'))
+        ;
+        ?>
+    </head>
+    <style type="text/css">
+        footer {
+            position : absolute;
+            bottom : 0;
+            left:0;
+            right:0;
+            margin-left:auto;
+            margin-right:auto;
+            width: 95%;
+            text-align: right;
+        }
+    </style>
+    <body ng-app="ComprassApp">
+        <div flex="100" layout="row" layout-align="center center" style="height: 80%" >
+            <div flex-sm="100" flex-gt-sm="90" flex-gt-md="70" flex-gt-lg="50" class="md-whiteframe-z2" >
+                <md-content class="md-padding">
+                    <?php echo $this->content; ?>
+                </md-content>
+            </div>
+
+        </div>
+        <footer>
+            <hr>
+            <p>&copy; 2016 - <?php echo date('Y') ?> by Grupo Promass. <?php echo $this->translate('All rights reserved.') ?></p>
+        </footer>
+        <!-- inline script -->
+        <?php
+        echo $this->inlineScript()
+                ->prependFile($this->basePath('js/angular-animate.min.js'))
+                ->prependFile($this->basePath('js/angular-aria.min.js'))
+                ->prependFile($this->basePath('js/angular-messages.min.js'))
+                ->prependFile($this->basePath('js/angular-material.min.js'))
+        ; ?>
+        <!-- Your application bootstrap  -->
+        <script type="text/javascript">
+            /**
+             * You must include the dependency on 'ngMaterial' 
+             */
+//            Comprass = angular.module('ComprassApp', ['ngMaterial', 'ngMessages'])
+//                    .config(function ($mdThemingProvider) {
+//                        $mdThemingProvider.theme('default')
+//                                .primaryPalette('blue', {'default': '900'})
+//                                .accentPalette('light-blue');
+//                    });
+        </script>
+    </body>
+</html>
+
