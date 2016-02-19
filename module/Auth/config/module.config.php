@@ -44,7 +44,7 @@ return array(
     ),
     'controllers' => array(
         'invokables' => array(
-            'Auth\Controller\Index' => Controller\IndexController::class
+            'Auth\Controller\Index' => Controller\AuthController::class
         ),
     ),
     'view_manager' => array(

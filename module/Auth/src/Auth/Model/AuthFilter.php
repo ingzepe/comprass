@@ -11,17 +11,16 @@ use Zend\InputFilter\InputFilterInterface;
  *
  * @author ENRIQUE
  */
-class Auth implements InputFilterAwareInterface {
+class AuthFilter implements InputFilterAwareInterface {
 
-    public $id;
-    public $artist;
-    public $title;
+    public $user;
+    public $pass;
     protected $inputFilter;                       // <-- Add this variable
 
-//    public function exchangeArray($data) {
-//        $this->user = (isset($data['user'])) ? $data['user'] : null;
-//        $this->pass = (isset($data['pass'])) ? $data['pass'] : null;
-//    }
+    public function exchangeArray($data) {
+        $this->user = (isset($data['user'])) ? $data['user'] : null;
+        $this->pass = (isset($data['pass'])) ? md5($data['pass']) : null;
+    }
 
     // Add content to these methods:
     public function setInputFilter(InputFilterInterface $inputFilter) {
@@ -36,7 +35,6 @@ class Auth implements InputFilterAwareInterface {
                 'name' => 'user',
                 'required' => true,
                 'filters' => array(
-                    array('name' => 'Int'),
                     array('name' => 'StripTags'),
                     array('name' => 'StringTrim'),
                 ),
@@ -54,8 +52,8 @@ class Auth implements InputFilterAwareInterface {
                         'name' => 'StringLength',
                         'options' => array(
                             'encoding' => 'UTF-8',
-                            'min' => 1,
-                            'max' => 100,
+                            'min' => 6,
+                            'max' => 15,
                         ),
                     ),
                 ),
