@@ -1,0 +1,33 @@
+<?php ?> 
+<h1 style="margin: 0"><?php echo $this->escapeHtml($this->title); ?></h1>
+<?php
+$form = $this->formulario;
+//    $form->setAttribute('action', $this->url('auth', array('action' => 'add')));
+$form->prepare();
+?>
+<md-content layout="row" layout-align="center center">
+    <?php echo $this->form()->openTag($form); ?>
+    <div layout="column">
+        <div flex="5" layout="row" layout-fill>
+            <md-input-container style="margin: 12px">
+                <label>Usuario </label>
+                <?php echo $this->formInput($form->get('user')); ?>
+                <div ng-messages="login.user.$error">
+                    <div ng-message="required">This is required.</div>
+                </div>
+            </md-input-container >
+            <md-input-container style="margin: 12px">
+                <label>Contraseña </label>
+                <?php echo $this->formInput($form->get('pass')); ?>
+                <div ng-messages="login.pass.$error">
+                    <div ng-message="required">This is required.</div>
+                </div>
+            </md-input-container>
+            <div>
+                <md-button class="md-raised md-primary" type="submit">Entrar</md-button>
+            </div>
+        </div>
+    </div>
+    <div class="error-login">{{errors}}</div>
+    <?php echo $this->form()->closeTag() ?>
+</md-content>
