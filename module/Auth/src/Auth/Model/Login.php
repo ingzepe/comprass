@@ -14,6 +14,7 @@ use Zend\Authentication\Adapter\AdapterInterface;
 use Zend\Authentication\Adapter\DbTable as AuthAdapter;
 use Zend\Authentication\Result;
 use Zend\Authentication\AuthenticationService;
+use Zend\Authentication\Storage\Session;
 
 /**
  * Description of Login
@@ -98,6 +99,7 @@ class Login implements AdapterInterface {
     private function Success(){
         $auth = new AuthenticationService();
         $auth->authenticate($this->authAdapter);
+        $auth->setStorage(new Session('user_auth'));
     }
 
         public function getCode(){

@@ -19,64 +19,71 @@
                 ->prependFile($this->basePath('js/angular.min.js'))
         ; ?>
     </head>
-    <!--<body ng-app="ComprassApp" ng-cloak>-->
-    <body ng-app="ComprassApp">
-        <md-toolbar layout="row" >
-            <h6>Comprass - Starter App</h6>
-        </md-toolbar>
-        <div flex layout="row">
-
-            <!-- SideNav -->
-            <md-sidenav md-is-locked-open="true" class="md-whiteframe-z2">
-                <md-list>
-                    <!-- List item #1 -->
-                    <md-list-item >
-                        <md-button>
-                            <!--<md-icon md-svg-src="./assets/svg/avatar-1.svg" class="avatar"></md-icon>-->
-                            Inicio
-                        </md-button>
-                    </md-list-item>
-
-                    <!-- List item #2 -->
-                    <md-list-item >
-                        <md-button>
-                            <!--<md-icon md-svg-src="./assets/svg/avatar-4.svg" class="avatar"></md-icon>-->
-                            Permisos
-                        </md-button>
-                    </md-list-item>
-                </md-list>
-            </md-sidenav>
-
-            <!-- Container #4 -->
-            <md-content flex id="content">
-                <?php echo $this->content; ?>
-                <hr>
-                <footer>
-                    <p>&copy; 2016 - <?php echo date('Y') ?> by Grupo Promass. <?php echo $this->translate('All rights reserved.') ?></p>
-                </footer>
-            </md-content>
-
+    <style type="text/css">
+        footer {
+            position : absolute;
+            bottom : 0;
+            left:0;
+            right:0;
+            margin-left:auto;
+            margin-right:auto;
+            width: 95%;
+            text-align: right;
+        }
+    </style>
+    <script type="text/javascript">
+        var basePath = "<?php echo $this->basePath(); ?>";
+    </script>
+    <body>
+        <div ng-app="ToolBar">
+            <md-toolbar  class="md-menu-toolbar">
+                <div layout="row">
+                    <md-toolbar-filler layout layout-align="center center">
+                        <!--<md-icon md-svg-icon="call:chat"></md-icon>-->
+                    </md-toolbar-filler>
+                    <div>
+                        <h2 class="md-toolbar-tools">Comprass</h2>
+                        <md-menu-bar ng-controller="MenuCtrl as ctrl" ng-cloak id="menu-bar">
+                            <md-menu>
+                                <button ng-click="ctrl.redirectAction('home')">
+                                    Inicio
+                                </button>
+                                <md-menu-content>
+                                    <md-menu-item>
+                                        <md-button >
+                                            Inicio
+                                        </md-button>
+                                    </md-menu-item>
+                                </md-menu-content>
+                            </md-menu>
+                        </md-menu-bar>
+                    </div>
+                </div>
+            </md-toolbar>
         </div>
+
+            <?php echo $this->navigation('navigation')->menu(); ?>
+
+<!--        <md-toolbar layout="row" >
+            <h6>Comprass - Starter App</h6>
+            <?php //echo $this->navigation()->breadcrumbs(); ?>
+            <?php //echo $this->navigation()->breadcrumbs()->render(); ?>
+        </md-toolbar>-->
+        <md-content flex id="content">
+            <?php echo $this->content; ?>
+        </md-content>
+        <footer>
+            <hr>
+            <p>&copy; 2016 - <?php echo date('Y') ?> by Grupo Promass. <?php echo $this->translate('All rights reserved.') ?></p>
+        </footer>
         <!-- inline script -->
         <?php echo $this->inlineScript() 
             ->prependFile($this->basePath('js/angular-animate.min.js'))
             ->prependFile($this->basePath('js/angular-aria.min.js'))
             ->prependFile($this->basePath('js/angular-messages.min.js'))
             ->prependFile($this->basePath('js/angular-material.min.js'))
+            ->prependFile($this->basePath('js/menu.js'))
         ; ?>
-
-        <!-- Your application bootstrap  -->
-        <script type="text/javascript">
-            /**
-             * You must include the dependency on 'ngMaterial' 
-             */
-//            Comprass = angular.module('ComprassApp', ['ngMaterial'])
-//            .config(function($mdThemingProvider) {
-//              $mdThemingProvider.theme('default')
-//                .primaryPalette('blue',{'default': '900'})
-//                .accentPalette('light-blue');
-//            });
-        </script>
     </body>
 </html>
 

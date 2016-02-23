@@ -1,20 +1,21 @@
 
 
 Comprass = angular.module('ComprassApp', ['ngMaterial', 'ngMessages'])
-        .controller('loginCtrl', ['$scope', '$http', '$window', '$location', function ($scope, $http, $window, $location) {
+        .controller('loginCtrl', ['$scope', '$http', function ($scope, $http) {
                 $scope.error = [];
                 $scope.error['pass'] = 'Contraseña';
                 $scope.error['user'] = 'Usuario';
                 $scope.error['auth'] = 'Error';
-                $scope.errors = '';
                 $scope.submit = function () {
+                    $scope.errors = '';
                     $http({
                         method: 'POST',
                         url: 'auth/index/login',
                         data: {'user': $scope.user, 'pass': $scope.pass}
                     }).then(function (r) {
                         if (r.data.code == 1) {
-                            $location.path('/index');
+                            $scope.errors = baseUrl = location.protocol + '//' + location.host + basePath;
+                            window.location = baseUrl;
                         } else {
                             angular.forEach(r.data.message, function (value, key) {
                                 $scope.errors = $scope.error[key];

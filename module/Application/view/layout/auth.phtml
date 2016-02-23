@@ -33,6 +33,9 @@
             text-align: right;
         }
     </style>
+    <script type="text/javascript">
+        var basePath = "<?php echo $this->basePath(); ?>";
+    </script>
     <body ng-app="ComprassApp">
         <div flex="100" layout="row" layout-align="center center" style="height: 80%" >
             <div flex-sm="20" flex-gt-sm="20" flex-gt-md="30" flex-gt-lg="50" class="md-whiteframe-4dp" >
@@ -55,17 +58,6 @@
                 ->prependFile($this->basePath('js/angular-material.min.js'))
         ; ?>
         <!-- Your application bootstrap  -->
-        <script type="text/javascript">
-            /**
-             * You must include the dependency on 'ngMaterial' 
-             */
-//            Comprass = angular.module('ComprassApp', ['ngMaterial', 'ngMessages'])
-//                    .config(function ($mdThemingProvider) {
-//                        $mdThemingProvider.theme('default')
-//                                .primaryPalette('blue', {'default': '900'})
-//                                .accentPalette('light-blue');
-//                    });
-        </script>
     </body>
 </html>
 
