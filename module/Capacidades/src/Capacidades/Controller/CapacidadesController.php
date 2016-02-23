@@ -8,13 +8,13 @@
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
-namespace Application\Controller;
+namespace Capacidades\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Zend\Authentication\AuthenticationService;
 
-class IndexController extends AbstractActionController {
+class CapacidadesController extends AbstractActionController {
 
     public function onDispatch(\Zend\Mvc\MvcEvent $e) {
         $this->authService = new AuthenticationService();

@@ -25,12 +25,20 @@ return array(
                 'order' => 100,
                 'pages' => array(
                     array(
-                        'label' => 'login',
+                        'label' => 'Login',
                         'route' => 'auth',
                     ),
                     array(
-                        'label' => 'Usuario',
-                        'uri' => 'www.google.com.mx',
+                        'label' => 'Capacidedes',
+                        'route' => 'capacidades',
+                    ),
+                    array(
+                        'label' => 'Roles',
+                        'route' => 'roles',
+                    ),
+                    array(
+                        'label' => 'Usuarios',
+                        'route' => 'usuarios',
                     ),
                 ),
             ),

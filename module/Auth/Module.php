@@ -10,7 +10,6 @@
 
 namespace Auth;
 
-use Zend\Session\Config\StandardConfig;
 use Zend\Session\SessionManager;
 use Zend\Session\Container;
 use Zend\Mvc\ModuleRouteListener;
