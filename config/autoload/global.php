@@ -36,10 +36,6 @@ return array(
                         'label' => 'Roles',
                         'route' => 'roles',
                     ),
-                    array(
-                        'label' => 'Usuarios',
-                        'route' => 'usuarios',
-                    ),
                 ),
             ),
             array(
@@ -57,16 +53,21 @@ return array(
     ),
     'service_manager' => array(
         'factories' => array(
+            'Zend\Db\Adapter\Adapter'=>'Zend\Db\Adapter\AdapterServiceFactory',
             'navigation' => 'Zend\Navigation\Service\DefaultNavigationFactory',
             'Zend\Session\Config\ConfigInterface' => 'Zend\Session\Service\SessionConfigFactory',
         ),
+    ),
+    'db'=>array(
+        'driver'=>'Pdo',
+        'dsn'=>'sqlsrv:database=comprass;Server=(localdb)\mssqllocaldb',
     ),
     'session' => array(
         'config' => array(
             'class' => 'Zend\Session\Config\SessionConfig',
             'options' => array(
                 'name' => 'user_auth',
-                'cookie_lifetime'     => 1800,
+//                'cookie_lifetime'     => 120,
                 'gc_maxlifetime'      => 1800,
                 'remember_me_seconds' => 1800,
             ),

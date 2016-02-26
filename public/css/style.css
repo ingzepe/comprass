@@ -2,3 +2,8 @@ div.error-login{
     color: red;
     /*margin-top: -5px;*/
 }
+
+.grid {
+    width: 90%;
+    height: 250px;
+}

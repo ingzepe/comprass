@@ -1,5 +1,3 @@
-
-
 Comprass = angular.module('ComprassApp', ['ngMaterial', 'ngMessages'])
         .controller('loginCtrl', ['$scope', '$http', function ($scope, $http) {
                 $scope.error = [];

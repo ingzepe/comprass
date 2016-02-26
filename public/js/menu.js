@@ -22,8 +22,7 @@ angular.forEach(navigation, function (value, key) {
     }
 });
 document.querySelector('.navigation').remove();
-angular
-        .module('ToolBar', ['ngMaterial'])
+angular.module('ToolBar', ['ngMaterial'])
         .config(function ($mdIconProvider) {
 //            $mdIconProvider
 //                    .defaultIconSet('img/icons/sets/core-icons.svg', 24);

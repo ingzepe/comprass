@@ -35,7 +35,7 @@ class AuthController extends AbstractActionController {
         $this->authService = new AuthenticationService();
         $request = (array) Json::decode($this->getRequest()->getContent());
         if ($this->getRequest()->isPost()) {
-            $dbAdapter = $this->getServiceLocator()->get('Zend\Db\Adapter');
+            $dbAdapter = $this->getServiceLocator()->get('Zend\Db\Adapter\Adapter');
             $login = new Login($request, $dbAdapter);
             if ($login->ValidFilter($request)) {
                 $login->Auth($dbAdapter);

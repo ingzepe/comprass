@@ -10,9 +10,7 @@ return array(
     'modules' => array(
         'Application',
         'Auth',
-        'Capacidades',
-        'Roles',
-        'Usuarios',
+        'Seguridad',
     ),
 
     // These are various options for the listeners attached to the ModuleManager

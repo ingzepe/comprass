@@ -1,0 +1,11 @@
+ <?php
+ $title = 'Capacidades';
+ $this->headTitle($title);
+ ?>
+ <h1><?php echo $this->escapeHtml($title); ?></h1>
+<div ng-app="Grid" layout="column" layout-margin>
+    <div ng-controller="MainCtrl" flex layout="row" layout-align="center center">
+        <div id="grid1" ui-grid="{ data: myData }" class="grid" ui-grid="gridOptions"></div>
+    </div>
+</div>
+
